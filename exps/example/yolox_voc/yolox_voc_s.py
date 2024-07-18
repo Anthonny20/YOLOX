@@ -12,6 +12,7 @@ class Exp(MyExp):
         self.depth = 0.33
         self.width = 0.50
         self.warmup_epochs = 1
+        self.max_epoch = 200 #mudar aqui para alterar a quantidade de epocas
 
         # ---------- transform config ------------ #
         self.mosaic_prob = 1.0
@@ -26,7 +27,7 @@ class Exp(MyExp):
 
         return VOCDetection(
             data_dir=os.path.join(get_yolox_datadir(), "VOCdevkit"),
-            image_sets=[('2007', 'trainval'), ('2012', 'trainval')],
+            image_sets=[('2007', 'trainval')],
             img_size=self.input_size,
             preproc=TrainTransform(
                 max_labels=50,
